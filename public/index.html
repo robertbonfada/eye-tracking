@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eye Tracking Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .section {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    #scroll-indicator {
+      position: fixed;
+      left: calc(50% - 250px);
+      bottom: 20px;
+      width: 500px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    
+    #gaze-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #gaze-indicator {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: red;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+  <script src="/js/webgazer.js"></script>
+  
+  <script src="/js/eye-tracking.js"></script>
+</head>
+<body>
+  <!-- <video id="video" width="640" height="480" autoplay></video> -->
+  <!-- <canvas id="canvas" width="640" height="480"></canvas> -->
+  <div id="section1" class="section" style="background: linear-gradient(to bottom, #ff7f00, #ff4f00);">
+    Section 1
+  </div>
+
+  <div id="section2" class="section" style="background: linear-gradient(to bottom, #007bff, #003eff);">
+    Section 2
+  </div>
+
+  <div id="section3" class="section" style="background: linear-gradient(to bottom, #6f00ff, #3a00ff);">
+    Section 3
+  </div>
+
+  <div id="scroll-indicator">
+    Olhe aqui para descer
+  </div>
+
+  <div id="gaze-overlay">
+    <div id="gaze-indicator"></div>
+  </div>
+  <!-- <script src="/js/opencv.js" onload="onOpenCvLoaded();" async></script> -->
+  <!-- <script src="opencv.js" onload="onOpenCvLoaded();" async></script> -->
+
+  <script>
+     let video, canvas, context, captureInterval, gazeInterval;
+
+function startCapture() {
+  // video = document.getElementById('video');
+  canvas = document.getElementById('canvas');
+  context = canvas.getContext('2d');
+
+  // navigator.mediaDevices.getUserMedia({ video: true })
+  //   .then(stream => {
+  //     video.srcObject = stream;
+  //     video.play();
+  //   })
+  //   .catch(error => console.error('Erro ao acessar a câmera:', error));
+}
+
+// function startGazeTracking() {
+//   webgazer.setGazeListener((data, elapsedTime) => {
+//     if (data == null) {
+//       return;
+//     }
+
+//     const x = data.x; // posição horizontal do olhar
+//     const y = data.y; // posição vertical do olhar
+
+//     // const videoWidth = video.videoWidth;
+//     // const videoHeight = video.videoHeight;
+
+//     // Desenhar linha da câmera até o ponto de olhar
+//     // context.clearRect(0, 0, canvas.width, canvas.height);
+//     // context.beginPath();
+//     // context.moveTo(videoWidth / 2, videoHeight / 2);
+//     // context.lineTo(x * videoWidth, y * videoHeight);
+//     // context.strokeStyle = 'red';
+//     // context.lineWidth = 2;
+//     // context.stroke();
+//   });
+
+//   webgazer.begin();
+// }
+
+function onOpenCvLoaded() {
+  // startCapture();
+  // startGazeTracking();
+}
+  </script>
+</body>
+</html>
