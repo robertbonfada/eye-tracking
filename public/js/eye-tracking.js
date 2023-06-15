@@ -16,13 +16,6 @@ let scrollInProgress = false;
       gazeIndicator.style.left = x + 'px';
       gazeIndicator.style.top = y + 'px';
 
-      // Verifica se o usuário está olhando para o scroll-indicator e se o scroll não está em andamento
-      // console.log('loop')
-      // if (isLookingAtElement(scrollIndicator, x, y) && !scrollInProgress) {
-      //   console.log('is looking')
-      //   scrollInProgress = true;
-      //   smoothScroll();
-      // }
     });
 
     // Solicita permissão para acessar a câmera e inicia a calibragem
@@ -36,11 +29,6 @@ let scrollInProgress = false;
         const y = data.y; // posição vertical do olhar
   
         const scrollIndicator = document.getElementById('scroll-indicator');
-        // const gazeIndicator = document.getElementById('gaze-indicator');
-  
-        // Atualiza a posição do indicador de olhar
-        // gazeIndicator.style.left = x + 'px';
-        // gazeIndicator.style.top = y + 'px';
   
         // Verifica se o usuário está olhando para o scroll-indicator e se o scroll não está em andamento
         
@@ -51,7 +39,7 @@ let scrollInProgress = false;
       })
       .begin();
 
-    // webgazer.showPredictionPoints(false);
+
 
     // Função para verificar se o usuário está olhando para um elemento
     function isLookingAtElement(element, x, y) {
